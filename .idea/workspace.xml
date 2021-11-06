@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand />
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="dae2aef9-a26d-41cd-83ee-a856fb11f8ea" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="feature-1" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1yrt8Ab7DzGHwNSpNtKx23Q9jMt" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/img" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PhpStorm 2020.2.4\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\egor\AppData\Local\FoundryVTT\Data\modules\storyteller\img" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\egor\AppData\Local\FoundryVTT\Data\modules\storyteller\img" />
+      <recent name="C:\Users\egor\AppData\Local\FoundryVTT\Data\modules\storyteller\templates" />
+      <recent name="C:\Users\egor\AppData\Local\FoundryVTT\Data\modules\storyteller" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="dae2aef9-a26d-41cd-83ee-a856fb11f8ea" name="Default Changelist" comment="" />
+      <created>1633021372175</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1633021372175</updated>
+      <workItem from="1633021373235" duration="5646000" />
+      <workItem from="1633033327301" duration="2050000" />
+      <workItem from="1633104885793" duration="16000" />
+      <workItem from="1633113120503" duration="34000" />
+      <workItem from="1633113542146" duration="4843000" />
+      <workItem from="1633164554107" duration="16356000" />
+      <workItem from="1633257739928" duration="15630000" />
+      <workItem from="1633369117247" duration="7233000" />
+      <workItem from="1633546631408" duration="9000" />
+      <workItem from="1633547016027" duration="214000" />
+      <workItem from="1633782289317" duration="129000" />
+      <workItem from="1633810415948" duration="5695000" />
+      <workItem from="1634057411469" duration="14709000" />
+      <workItem from="1634324775267" duration="22000" />
+      <workItem from="1634325171394" duration="8608000" />
+      <workItem from="1634379552547" duration="2427000" />
+      <workItem from="1634487173079" duration="4990000" />
+      <workItem from="1634496986486" duration="6576000" />
+      <workItem from="1634571991893" duration="22000" />
+      <workItem from="1634747989198" duration="8992000" />
+      <workItem from="1634761782356" duration="2563000" />
+      <workItem from="1634799834387" duration="220000" />
+      <workItem from="1634834058171" duration="7002000" />
+      <workItem from="1635600549743" duration="6066000" />
+      <workItem from="1635708125737" duration="6658000" />
+      <workItem from="1635877373977" duration="2265000" />
+      <workItem from="1635879879449" duration="6833000" />
+      <workItem from="1635951728902" duration="72000" />
+      <workItem from="1636022351306" duration="25296000" />
+      <workItem from="1636109716644" duration="6396000" />
+      <workItem from="1636192976117" duration="7643000" />
+      <workItem from="1636202865701" duration="77000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+    <option name="exactExcludedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/app/node_modules/aws-sdk/scripts/services-table-generator.js" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="1010" y="447" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1636198899615">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1010" y="447" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.2560.1400/2560.0.2560.1400@0.0.2560.1400" timestamp="1636198899615" />
+    <state x="248" y="122" key="DiffContextDialog" timestamp="1636202652604">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="248" y="122" key="DiffContextDialog/0.0.2560.1400/2560.0.2560.1400@0.0.2560.1400" timestamp="1636202652604" />
+    <state x="1060" y="455" key="FileChooserDialogImpl" timestamp="1633104894902">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1060" y="455" key="FileChooserDialogImpl/0.0.2560.1400/2560.0.2560.1400@0.0.2560.1400" timestamp="1633104894902" />
+    <state x="999" y="403" key="RollbackChangesDialog" timestamp="1636202671084">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="999" y="403" key="RollbackChangesDialog/0.0.2560.1400/2560.0.2560.1400@0.0.2560.1400" timestamp="1636202671084" />
+    <state x="872" y="433" key="Vcs.Push.Dialog.v2" timestamp="1636202549131">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="872" y="433" key="Vcs.Push.Dialog.v2/0.0.2560.1400/2560.0.2560.1400@0.0.2560.1400" timestamp="1636202549131" />
+    <state x="92" y="92" width="2376" height="1216" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1634330850315">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="92" y="92" width="2376" height="1216" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.2560.1400/2560.0.2560.1400@0.0.2560.1400" timestamp="1634330850315" />
+    <state x="551" y="427" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1635603525796">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="551" y="427" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.2560.1400/2560.0.2560.1400@0.0.2560.1400" timestamp="1635603525796" />
+    <state x="1059" y="471" width="1263" height="756" key="find.popup" timestamp="1636055021914">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1059" y="471" width="1263" height="756" key="find.popup/0.0.2560.1400/2560.0.2560.1400@0.0.2560.1400" timestamp="1636055021914" />
+    <state x="1025" y="413" key="git4idea.branch.GitSmartOperationDialog" timestamp="1636202672827">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1025" y="413" key="git4idea.branch.GitSmartOperationDialog/0.0.2560.1400/2560.0.2560.1400@0.0.2560.1400" timestamp="1636202672827" />
+    <state x="1123" y="472" key="refactoring.ChangeSignatureDialog" timestamp="1633035062962">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1123" y="472" key="refactoring.ChangeSignatureDialog/0.0.2560.1400/2560.0.2560.1400@0.0.2560.1400" timestamp="1633035062962" />
+    <state x="936" y="330" key="run.anything.popup" timestamp="1635886943379">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="936" y="330" key="run.anything.popup/0.0.2560.1400/2560.0.2560.1400@0.0.2560.1400" timestamp="1635886943379" />
+    <state x="943" y="315" width="672" height="678" key="search.everywhere.popup" timestamp="1634069566419">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="943" y="315" width="672" height="678" key="search.everywhere.popup/0.0.2560.1400/2560.0.2560.1400@0.0.2560.1400" timestamp="1634069566419" />
+  </component>
+</project>

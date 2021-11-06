@@ -1,0 +1,10 @@
+{
+  "I18N.MAINTAINERS": ["Xbozon"],
+
+  "STORYTELLER.CopyID": "Copy story ID",
+  "STORYTELLER.Journal": "Journals",
+  "STORYTELLER.Stories": "Stories",
+  "STORYTELLER.ChangeImage": "Click here to change image",
+  "STORYTELLER.CantCreateFolder": "Folder creation is not currently supported, wait for future updates! Thanks for understanding!",
+  "DOCUMENT.StoryEntry": "Story"
+}
