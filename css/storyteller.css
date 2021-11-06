@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Kurale&display=swap');
+
 /* Styling for the tabs */
 nav.storyteller-nav.tabs {
     flex: 0;
@@ -118,4 +120,8 @@ nav.storyteller-nav.tabs {
 .storyteller-nav .item.active {
     text-shadow: 0 0 10px red;
     border-bottom: 2px solid red;
+}
+
+#stories .directory .directory-list {
+    height: 90%;
 }

@@ -270,11 +270,11 @@ export class StoryEntry extends BaseStoryEntry {
         return data;
     }
 
-    async delete(context={}) {
+    async delete(context = {}) {
         context.parent = this.parent;
         context.pack = this.pack;
 
-        this._onDelete(context,"")
+        this._onDelete(context, "")
         return this
     }
 
@@ -395,20 +395,18 @@ export class StorySheet extends DocumentSheet {
             return this.render(true, options);
         }
 
-        // Display image mode
-        if (mode === "image") {
-            const img = this.object.data.img;
-            const pos = await ImagePopout.getPosition(img);
-            foundry.utils.mergeObject(options, pos);
-            options.classes = this.constructor.defaultOptions.classes.concat(ImagePopout.defaultOptions.classes);
-        }
+        // // Display image mode
+        // if (mode === "image") {
+        //     const img = this.object.data.img;
+        //     const pos = await ImagePopout.getPosition(img);
+        //     foundry.utils.mergeObject(options, pos);
+        //     options.classes = this.constructor.defaultOptions.classes.concat(ImagePopout.defaultOptions.classes);
+        // } else if (mode === "text") {
+        //
+        // }
+        options.classes = this.constructor.defaultOptions.classes
 
-        // Adjust for text mode
-        else if (mode === "text") {
-            options.classes = this.constructor.defaultOptions.classes
-        }
-
-        this._sheetMode = mode;
+        this._sheetMode = "text";
         // Normal rendering
         await super._render(force, options);
 
