@@ -128,7 +128,12 @@ class StoryTeller {
         let form = input.closest("form")
         let newSrc = input.value
         let image = form.querySelector("div.image-container")
+        let tooltip = form.querySelector("div.image-container .storyteller-tooltip")
         image.style.backgroundImage = "url('" + newSrc + "')";
+
+        if (tooltip) {
+            tooltip.style.display = 'none'
+        }
     }
 }
 
