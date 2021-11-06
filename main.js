@@ -46,8 +46,10 @@ class StoryTeller {
     async _onChangeSidebarTab(tab) {
         let storiesTab = $('#stories')
         if (tab.appId !== 27) { // JournalTab
-            this.savedCurrentTab = this.currentTab
-            this.currentTab = tab
+            this.savedCurrentTab = "stories"
+            if (this.currentTab === "stories") {
+                this.currentTab = "closed"
+            }
             storiesTab.hide()
         } else {
             this.currentTab = this.savedCurrentTab
@@ -82,7 +84,13 @@ class StoryTeller {
 
     showStoryByIDToAll(id = "") {
         let story = game.customFolders.stories.entries.get(id)
-        story.sheet.render(true)
+        if (this.activeStory?.id === story?.id) {
+            this.activeStory = null
+            story.sheet.close()
+        } else {
+            this.activeStory = story
+            story.sheet.render(true)
+        }
         story.show("text", true)
     }
 

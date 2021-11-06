@@ -26,6 +26,12 @@ nav.storyteller-nav.tabs {
     overflow: initial;
     margin: 0 4% 3% 4%;
     padding: 0.34%;
+    /* hack */
+    height: 0;
+}
+
+.window-app.story-sheet .window-content form {
+    height: 100%;
 }
 
 .story-sheet:before{
@@ -60,8 +66,16 @@ nav.storyteller-nav.tabs {
     height: 100%;
 }
 
+.page.left {
+    height: 100%;
+}
+
 .page.left > .page-inner {
-    padding: 1% 7% 0px 4.25%;
+    padding: 1% 6% 6% 4.25%;
+
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 100%;
 }
 
 .page.right > .page-inner {
@@ -124,4 +138,15 @@ nav.storyteller-nav.tabs {
 
 #stories .directory-list {
     height: 90%;
+}
+
+.page.left > .page-inner ::-webkit-scrollbar-thumb {
+    outline: none;
+    border-radius: 5px;
+    border: none;
+    background: #74645526;
+}
+
+.page.left > .page-inner ::-webkit-scrollbar-track {
+    background: transparent !important;
 }
