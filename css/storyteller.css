@@ -73,8 +73,6 @@ nav.storyteller-nav.tabs {
 .page.left > .page-inner {
     padding: 1% 6% 6% 4.25%;
 
-    overflow-y: scroll;
-    overflow-x: hidden;
     height: 100%;
 }
 
@@ -89,7 +87,7 @@ nav.storyteller-nav.tabs {
 .page-inner .editor {
     font-family: 'Kurale', serif;
     margin: 0.5em 0;
-    font-size: 1.3vh;
+    font-size: 1.4vh;
     font-weight: 600;
     opacity: 0.9;
     color: #48392e;
