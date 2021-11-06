@@ -163,8 +163,14 @@ class StoryDirectory extends SidebarDirectory {
                 condition: () => game.user.isGM,
                 callback: li => {
                     const entry = game.customFolders.stories.entries.get(li.data("entity-id"));
-                    navigator.clipboard.writeText(entry.id)
-                    // return entry.panToNote();
+
+                    var aux = document.createElement("input");
+                    aux.setAttribute("value", entry.id);
+                    document.body.appendChild(aux);
+                    aux.select();
+                    document.execCommand("copy");
+
+                    document.body.removeChild(aux);
                 }
             }
         )].concat(options);
