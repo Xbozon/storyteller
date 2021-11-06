@@ -45,16 +45,14 @@ class StoryTeller {
 
     async _onChangeSidebarTab(tab) {
         let storiesTab = $('#stories')
-        if (tab.appId !== 27) { // JournalTab
-            this.savedCurrentTab = "stories"
-            if (this.currentTab === "stories") {
-                this.currentTab = "closed"
-            }
+        if (tab.tabName !== "journal") { // JournalTab
             storiesTab.hide()
         } else {
-            this.currentTab = this.savedCurrentTab
+            // this.currentTab = this.savedCurrentTab
             if (this.currentTab === "stories") {
                 storiesTab.show()
+            } else {
+                storiesTab.hide()
             }
         }
     }
@@ -400,7 +398,6 @@ export class StorySheet extends DocumentSheet {
 
     /** @inheritdoc */
     async _render(force, options = {}) {
-
         // Determine the sheet rendering mode
         const mode = options.sheetMode || this._sheetMode;
         if (mode === null) return;

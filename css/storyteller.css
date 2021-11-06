@@ -107,13 +107,6 @@ nav.storyteller-nav.tabs {
     -webkit-mask-position: center;
 }
 
-.story-background {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: black;
-}
-
 .story-submit{
     position: relative;
     width: 94%;
