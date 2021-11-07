@@ -1,6 +1,6 @@
 const modName = 'storyteller';
 
-// CONFIG.debug.hooks = true
+CONFIG.debug.hooks = true
 
 const bookSizeCorrection = 1
 const bookScreenSizePercent = 0.8
@@ -44,14 +44,20 @@ class StoryTeller {
     }
 
     async _onChangeSidebarTab(tab) {
+        const journal = $('#journal');
         let storiesTab = $('#stories')
+
         if (tab.tabName !== "journal") { // JournalTab
+            this.savedTab = this.currentTab
+            this.currentTab = ""
             storiesTab.hide()
         } else {
-            // this.currentTab = this.savedCurrentTab
+            this.currentTab = this.savedTab
             if (this.currentTab === "stories") {
                 storiesTab.show()
+                journal.hide()
             } else {
+                journal.show()
                 storiesTab.hide()
             }
         }
