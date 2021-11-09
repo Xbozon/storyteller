@@ -14,7 +14,7 @@ For best effect.
 
 ## How it looks
 
-![alt text](img/step-0.jpg "Title")
+![alt text](img/preview.jpg "Title")
 
 ## Creating a new story
 
