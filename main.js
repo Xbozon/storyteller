@@ -1,6 +1,6 @@
 const modName = 'storyteller';
 
-CONFIG.debug.hooks = true
+// CONFIG.debug.hooks = true
 
 const bookSizeCorrection = 1
 const bookScreenSizePercent = 0.8
