@@ -5,7 +5,7 @@ const modName = 'storyteller';
 const bookSizeCorrection = 1
 const bookScreenSizePercent = 0.8
 const bookWidth = 1390
-const bookHeight = 934
+const bookHeight = 937
 
 class StoryTeller {
     static TABS_TEMPLATE = "modules/storyteller/templates/tabs.hbs";
@@ -96,6 +96,11 @@ class StoryTeller {
             story.sheet.render(true)
         }
         story.show("text", true)
+    }
+
+    showStoryToPlayerOnly(id = "") {
+        let story = game.customFolders.stories.entries.get(id)
+        story.sheet.render(true)
     }
 
     static addStory(story) {
@@ -361,7 +366,7 @@ export class StorySheet extends DocumentSheet {
             classes: ["sheet", "story-sheet"],
             width: getBookWidth(),
             height: getBookHeight(),
-            resizable: true,
+            resizable: false,
             closeOnSubmit: false,
             submitOnClose: true,
             viewPermission: CONST.ENTITY_PERMISSIONS.NONE
