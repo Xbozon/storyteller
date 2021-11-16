@@ -20,6 +20,11 @@ class StoryTeller {
 
     async _onRenderJournalDirectory(directoryTab, html, user) {
         const tabsHtml = await renderTemplate(StoryTeller.TABS_TEMPLATE);
+
+        if (this.currentTab === "") {
+            this.currentTab = this.savedTab
+        }
+
         html.prepend(tabsHtml);
         const tabs = new Tabs({
             navSelector: ".storyteller-nav.tabs",
@@ -339,6 +344,8 @@ export class StoryEntry extends BaseStoryEntry {
 }
 
 export class StorySheet extends DocumentSheet {
+    pageFlip = "modules/storyteller/sounds/paper-flip.mp3"
+
     constructor(object, options = {}) {
         super(object, options);
 
@@ -437,9 +444,16 @@ export class StorySheet extends DocumentSheet {
         // Normal rendering
         await super._render(force, options);
 
-
+        this.sound()
         // If the sheet was first created, activate the editor
         if (options.action === "create") this.activateEditor("content")
+    }
+
+    sound() {
+        if (!game.settings.get(modName, 'bookOpenSound')) {
+            return
+        }
+        AudioHelper.play({src: this.pageFlip, volume: 0.8, autoplay: true, loop: false}, true);
     }
 
     /** Меняем анимацию скрытия книги */
@@ -531,8 +545,6 @@ export class StorySheet extends DocumentSheet {
         await this.submit();
         return this.object.show(this._sheetMode, true);
     }
-
-
 }
 
 
@@ -785,6 +797,17 @@ function initFolders() {
     }
 }
 
+function registerSettings() {
+    game.settings.register(modName, 'bookOpenSound', {
+        name: game.i18n.localize('STORYTELLER.BookOpenSound'),
+        hint: game.i18n.localize('STORYTELLER.BookOpenSoundHint'),
+        scope: "client",
+        type: Boolean,
+        default: true,
+        config: true,
+    });
+}
+
 function getBookWidth() {
     let height = getBookHeight()
 
@@ -796,6 +819,7 @@ function getBookHeight() {
 }
 
 Hooks.on('init', function () {
+    registerSettings()
     game.settings.register(modName, 'storiesEntries', {
         scope: 'world',
         config: false,
