@@ -1,0 +1,10 @@
+{
+  "I18N.MAINTAINERS": ["Xbozon"],
+
+  "STORYTELLER.CopyID": "複製故事 ID",
+  "STORYTELLER.Journal": "日誌",
+  "STORYTELLER.Stories": "故事",
+  "STORYTELLER.ChangeImage": "點擊這裡更換圖片",
+  "STORYTELLER.CantCreateFolder": "目前不支持新增文件夾，請等待後續更新！ 感謝您的理解！",
+  "DOCUMENT.StoryEntry": "故事"
+}
