@@ -18,6 +18,11 @@
       "lang": "en",
       "name": "English",
       "path": "lang/en.json"
+    },
+    {
+      "lang": "zh-tw",
+      "name": "Traditional Chinese",
+      "path": "lang/zh-tw.json"
     }
   ],
   "socket": true,
