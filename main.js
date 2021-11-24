@@ -3,7 +3,6 @@ const modName = 'storyteller';
 // CONFIG.debug.hooks = true
 
 const bookSizeCorrection = 1
-const bookScreenSizePercent = 0.8
 const bookWidth = 1390
 const bookHeight = 937
 
@@ -12,7 +11,6 @@ class StoryTeller {
 
     init() {
         this.activeStory = null
-
         Hooks.on('renderJournalDirectory', this._onRenderJournalDirectory.bind(this))
         Hooks.on('renderStoryDirectory', this._onRenderStoryDirectory.bind(this))
         Hooks.on('changeSidebarTab', this._onChangeSidebarTab.bind(this))
@@ -182,7 +180,6 @@ class StoryDirectory extends SidebarDirectory {
     /** @override */
     _getEntryContextOptions() {
         let options = super._getEntryContextOptions()
-
         return [(
             {
                 name: "STORYTELLER.CopyID",
@@ -370,13 +367,13 @@ export class StorySheet extends DocumentSheet {
     /** @inheritdoc */
     static get defaultOptions() {
         return foundry.utils.mergeObject(super.defaultOptions, {
-            classes: ["sheet", "story-sheet"],
+            classes: ["sheet", "story-sheet", game.settings.get(modName, 'theme')],
             width: getBookWidth(),
             height: getBookHeight(),
             resizable: false,
             closeOnSubmit: false,
             submitOnClose: true,
-            viewPermission: CONST.ENTITY_PERMISSIONS.NONE
+            viewPermission: CONST.ENTITY_PERMISSIONS.NONE,
         });
     }
 
@@ -491,6 +488,12 @@ export class StorySheet extends DocumentSheet {
                 icon: "fas fa-eye",
                 onclick: ev => this._onShowPlayers(ev)
             });
+            buttons.unshift({
+                label: "JOURNAL.ActionConfigure",
+                class: "switch-settings",
+                icon: "fas fa-cog",
+                onclick: ev => this._onConfigureStory(ev)
+            })
         }
         return buttons;
     }
@@ -544,6 +547,14 @@ export class StorySheet extends DocumentSheet {
         event.preventDefault();
         await this.submit();
         return this.object.show(this._sheetMode, true);
+    }
+
+    _onConfigureStory(event) {
+        let story = $(event.target).closest(".window-app.story-sheet")
+        let pageRightImage = story.find('.page-inner.image')
+        let pageRightSettings = story.find('.page-inner.settings')
+        pageRightImage.toggleClass("hidden")
+        pageRightSettings.toggleClass("hidden")
     }
 }
 
@@ -806,6 +817,32 @@ function registerSettings() {
         default: true,
         config: true,
     });
+    game.settings.register(modName, 'theme', {
+        name: game.i18n.localize('STORYTELLER.Settings.Theme'),
+        hint: game.i18n.localize('STORYTELLER.Settings.ThemeHint'),
+        scope: "world",
+        type: String,
+        choices: {
+            "book": game.i18n.localize('STORYTELLER.Settings.ThemeBook'),
+            "newspaper": game.i18n.localize('STORYTELLER.Settings.ThemeNewspaper')
+        },
+        default: "book",
+        config: true,
+    });
+    game.settings.register(modName, 'size', {
+        name: game.i18n.localize('STORYTELLER.Settings.Size'),
+        hint: game.i18n.localize('STORYTELLER.Settings.SizeHint'),
+        scope: "world",
+        type: Number,
+        choices: {
+            70: "70%",
+            80: "80%",
+            90: "90%",
+            100: "100%",
+        },
+        default: 80,
+        config: true
+    });
 }
 
 function getBookWidth() {
@@ -815,7 +852,8 @@ function getBookWidth() {
 }
 
 function getBookHeight() {
-    return window.innerHeight * bookScreenSizePercent * bookSizeCorrection
+    let bookSize = game.settings.get(modName, 'size') / 100
+    return window.innerHeight * bookSize * bookSizeCorrection
 }
 
 Hooks.on('init', function () {
@@ -840,6 +878,7 @@ Hooks.on('init', function () {
             }
         }
     }
+
 
     game.StoryTeller = new StoryTeller()
     game.StoryTeller.init()

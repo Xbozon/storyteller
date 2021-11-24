@@ -2,6 +2,7 @@
   "I18N.MAINTAINERS": ["Xbozon"],
 
   "DOCUMENT.StoryEntry": "Story",
+  "JOURNAL.ActionConfigure": "Configure",
 
   "STORYTELLER.CopyID": "Copy story ID",
   "STORYTELLER.Journal": "Journals",
@@ -9,5 +10,13 @@
   "STORYTELLER.ChangeImage": "Click here to change image",
   "STORYTELLER.CantCreateFolder": "Folder creation is not currently supported, wait for future updates! Thanks for understanding!",
   "STORYTELLER.BookOpenSound": "Enable book opening sound",
-  "STORYTELLER.BookOpenSoundHint": "For each user individually"
+  "STORYTELLER.BookOpenSoundHint": "For each user individually",
+  "STORYTELLER.StoryName": "Story name:",
+
+  "STORYTELLER.Settings.Theme": "Change the style of the story",
+  "STORYTELLER.Settings.ThemeHint": "Changes the theme for all players",
+  "STORYTELLER.Settings.ThemeBook": "Book",
+  "STORYTELLER.Settings.ThemeNewspaper": "Newspaper",
+  "STORYTELLER.Settings.Size": "The size of the story on the screen",
+  "STORYTELLER.Settings.SizeHint": "100% takes up almost the entire screen height, 80% takes up no more than 80% of the screen height"
 }

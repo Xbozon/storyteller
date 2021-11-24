@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Kurale&display=swap');
+@import "themes/newspaper.css";
 
 /* Styling for the tabs */
 nav.storyteller-nav.tabs {
@@ -44,6 +45,18 @@ nav.storyteller-nav.tabs {
     z-index: -1;
 }
 
+.story-sheet-background {
+    content: " ";
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: #000000ba;
+}
+
 .story-sheet .pages {
     display: flex;
     flex-direction: row;
@@ -78,6 +91,23 @@ nav.storyteller-nav.tabs {
 
 .page.right > .page-inner {
     padding: 0% 0% 0% 2%;
+}
+
+.page.right > .page-inner.settings {
+    padding: 5%;
+}
+
+.page.right > .page-inner.settings .settings {
+    background-color: #0000000f;
+    padding: 2%;
+    border-radius: 10px;
+    height: 100%;
+    font-weight: 600;
+    font-size: 1.5em;
+}
+
+.page.right > .page-inner.hidden {
+    display: none;
 }
 
 .page.right > .page-inner .file-picker {
