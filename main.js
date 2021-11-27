@@ -450,7 +450,7 @@ export class StorySheet extends DocumentSheet {
         if (!game.settings.get(modName, 'bookOpenSound')) {
             return
         }
-        AudioHelper.play({src: this.pageFlip, volume: 0.8, autoplay: true, loop: false}, true);
+        AudioHelper.play({src: this.pageFlip, volume: 0.8, autoplay: true, loop: false}, false);
     }
 
     /** Меняем анимацию скрытия книги */
