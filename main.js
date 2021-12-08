@@ -1,7 +1,5 @@
 const modName = 'storyteller';
 
-// CONFIG.debug.hooks = true
-
 const bookSizeCorrection = 1
 const bookWidth = 1390
 const bookHeight = 937
@@ -11,6 +9,8 @@ class StoryTeller {
 
     init() {
         this.activeStory = null
+        this.canBeRender = true
+
         Hooks.on('renderJournalDirectory', this._onRenderJournalDirectory.bind(this))
         Hooks.on('renderStoryDirectory', this._onRenderStoryDirectory.bind(this))
         Hooks.on('changeSidebarTab', this._onChangeSidebarTab.bind(this))
@@ -50,20 +50,21 @@ class StoryTeller {
         const journal = $('#journal');
         let storiesTab = $('#stories')
 
-        if (tab.tabName !== "journal") { // JournalTab
-            this.savedTab = this.currentTab
-            this.currentTab = ""
+        if (tab.tabName !== "journal") {
+            this.canBeRender = false
             storiesTab.hide()
         } else {
-            this.currentTab = this.savedTab
             if (this.currentTab === "stories") {
+                this.canBeRender = true
                 storiesTab.show()
                 journal.hide()
             } else {
+                this.canBeRender = false
                 journal.show()
                 storiesTab.hide()
             }
         }
+        console.log(this.canBeRender)
     }
 
     _onTabSwitch(event, tabs, tab, directoryTab) {
@@ -207,7 +208,9 @@ class StoryDirectory extends SidebarDirectory {
     }
 
     render(force, context = {}) {
-        super.render(force, context)
+        if (game.StoryTeller.canBeRender) {
+            super.render(force, context)
+        }
         return this
     }
 
