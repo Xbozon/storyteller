@@ -74,9 +74,11 @@ class StoryTeller {
         const journal = $('#journal');
         const stories = $('#stories');
         if (tab === "stories") {
+            this.canBeRender = true
             journal.hide();
             stories.show();
         } else {
+            this.canBeRender = false
             journal.show();
             stories.hide();
         }
