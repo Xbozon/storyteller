@@ -48,7 +48,7 @@ class StoryTeller {
 
     async _onChangeSidebarTab(tab) {
         const journal = $('#journal');
-        let storiesTab = $('#stories')
+        let storiesTab = $('#story')
 
         if (tab.tabName !== "journal") {
             this.canBeRender = false
@@ -64,7 +64,6 @@ class StoryTeller {
                 storiesTab.hide()
             }
         }
-        console.log(this.canBeRender)
     }
 
     _onTabSwitch(event, tabs, tab, directoryTab) {
@@ -72,7 +71,7 @@ class StoryTeller {
             this.currentTab = tab;
 
         const journal = $('#journal');
-        const stories = $('#stories');
+        const stories = $('#story');
         if (tab === "stories") {
             this.canBeRender = true
             journal.hide();
@@ -161,8 +160,6 @@ class StoryDirectory extends SidebarDirectory {
         super(...args);
     }
 
-    // initialize() {}
-
     _onCreateFolder(event) {
         event.preventDefault();
         event.stopPropagation();
@@ -214,14 +211,6 @@ class StoryDirectory extends SidebarDirectory {
             super.render(force, context)
         }
         return this
-    }
-
-    /** @override */
-    static get defaultOptions() {
-        const options = super.defaultOptions;
-        options.id = "story";
-        options.template = "modules/storyteller/templates/stories-directory.html";
-        return options;
     }
 
     /** @override */
@@ -700,7 +689,7 @@ export class Story extends WorldCollection {
      */
     static async _showEntry(entryId, mode = "text", force = true) {
         let entry = await fromUuid(entryId);
-        if (entry.entity !== "StoryEntry") return;
+        if (entry.documentName !== "StoryEntry") return;
         if (!force && !entry.visible) return;
 
         // Don't show an entry that has no content
@@ -793,7 +782,9 @@ export class FakeFolderData extends foundry.data.FolderData {
 CONFIG.StoryEntry = {
     documentClass: StoryEntry,
     collection: Story,
-    sheetClass: StorySheet,
+    sheetClasses: {
+        base: StorySheet,
+    },
     noteIcons: {
         "Anchor": "icons/svg/anchor.svg",
         "Barrel": "icons/svg/barrel.svg"
@@ -862,6 +853,7 @@ function getBookHeight() {
 }
 
 Hooks.on('init', function () {
+    DocumentSheetConfig.registerSheet(StoryEntry, "base", StorySheet, {makeDefault: true})
     registerSettings()
     game.settings.register(modName, 'storiesEntries', {
         scope: 'world',
@@ -869,7 +861,7 @@ Hooks.on('init', function () {
         type: Object,
         default: {}
     });
-    game.system.entityTypes.StoryEntry = ["base"]
+    game.system.documentTypes.StoryEntry = ["base"]
     if (game.customFolders) {
         game.customFolders.stories = {
             folders: new StoryFolderCollection([]),

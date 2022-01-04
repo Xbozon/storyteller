@@ -6,7 +6,7 @@ nav.storyteller-nav.tabs {
     flex: 0;
 }
 
-#stories li.story {
+#story .document {
     line-height: 32px;
 }
 
@@ -157,7 +157,7 @@ nav.storyteller-nav.tabs {
     border-bottom: 2px solid red;
 }
 
-#stories .directory-list {
+#story .directory-list {
     height: 90%;
 }
 
