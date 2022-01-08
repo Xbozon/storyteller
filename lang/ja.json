@@ -1,0 +1,22 @@
+{
+  "I18N.MAINTAINERS": ["Brother Sharp"],
+
+  "DOCUMENT.StoryEntry": "物語",
+  "JOURNAL.ActionConfigure": "設定",
+
+  "STORYTELLER.CopyID": "物語IDをコピー",
+  "STORYTELLER.Journal": "死霊",
+  "STORYTELLER.Stories": "物語",
+  "STORYTELLER.ChangeImage": "クリックで画像変更",
+  "STORYTELLER.CantCreateFolder": "フォルダの作成はサポートされていません。今後のアップデートにご期待ください！",
+  "STORYTELLER.BookOpenSound": "本の開く音を再生",
+  "STORYTELLER.BookOpenSoundHint": "各ユーザに個別です。",
+  "STORYTELLER.StoryName": "物語名：",
+
+  "STORYTELLER.Settings.Theme": "物語のスタイルを変更",
+  "STORYTELLER.Settings.ThemeHint": "すべてのプレイヤーに適用されます。",
+  "STORYTELLER.Settings.ThemeBook": "本",
+  "STORYTELLER.Settings.ThemeNewspaper": "新聞",
+  "STORYTELLER.Settings.Size": "画面上の物語の大きさ",
+  "STORYTELLER.Settings.SizeHint": "100%は画面のほぼすべてを占めます。80%は画面の約8割の高さを占めます。"
+}
