@@ -186,8 +186,8 @@ class StoryDirectory extends SidebarDirectory {
                 icon: '<i class="fas fa-crosshairs"></i>',
                 condition: () => game.user.isGM,
                 callback: li => {
-                    const entry = game.customFolders.stories.entries.get(li.data("entity-id"));
-
+                    const id = li[0].dataset.documentId
+                    const entry = game.customFolders.stories.entries.get(id);
                     var aux = document.createElement("input");
                     aux.setAttribute("value", entry.id);
                     document.body.appendChild(aux);
