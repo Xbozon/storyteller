@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Kurale&display=swap');
+@import "compability.css";
 @import "themes/newspaper.css";
 
 /* Styling for the tabs */
@@ -111,7 +112,7 @@ nav.storyteller-nav.tabs {
 }
 
 .page.right > .page-inner .file-picker {
-    display: none;
+    display: none!important;
 }
 
 .page-inner .editor {

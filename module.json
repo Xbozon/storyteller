@@ -2,7 +2,7 @@
   "name": "storyteller",
   "title": "Storyteller",
   "description": "A small modification that allows you to present the story in the game as an open book. Inspired by the Owlcat Pathfinder: Kingmaker game.",
-  "version": "0.3.1",
+  "version": "0.3.3",
   "templateVersion": 2,
   "minimumCoreVersion": "9.235",
   "compatibleCoreVersion": "9.238",
@@ -28,11 +28,16 @@
       "lang": "ja",
       "name": "日本語",
       "path": "lang/ja.json"
+    },
+    {
+      "lang": "es",
+      "name": "Español",
+      "path": "lang/es.json"
     }
   ],
   "socket": true,
   "packs": [],
   "url": "https://github.com/Xbozon/storyteller",
   "manifest": "https://raw.githubusercontent.com/Xbozon/storyteller/main/module.json",
-  "download": "https://github.com/Xbozon/storyteller/archive/refs/tags/v0.3.1.zip"
+  "download": "https://github.com/Xbozon/storyteller/archive/refs/tags/v0.3.3.zip"
 }

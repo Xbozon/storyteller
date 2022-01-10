@@ -1,0 +1,22 @@
+{
+  "I18N.MAINTAINERS": ["Izan"],
+
+  "DOCUMENT.StoryEntry": "Relatos",
+  "JOURNAL.ActionConfigure": "Configuración",
+
+  "STORYTELLER.CopyID": "Copia Historia ID",
+  "STORYTELLER.Journal": "Diarios",
+  "STORYTELLER.Stories": "Relatos",
+  "STORYTELLER.ChangeImage": "Click aquí para cambiar la imagen",
+  "STORYTELLER.CantCreateFolder": "La creación de carpetas no está soportada actualmente, espere a futuras actualizaciones. Gracias por su comprensión.",
+  "STORYTELLER.BookOpenSound": "Activa el sonido de apertura del Relato",
+  "STORYTELLER.BookOpenSoundHint": "Para cada usuario individualmente",
+  "STORYTELLER.StoryName": "Nombre del Relato:",
+
+  "STORYTELLER.Settings.Theme": "Cambia el estilo del Relato",
+  "STORYTELLER.Settings.ThemeHint": "Cambia la apariencia para todos los jugadores",
+  "STORYTELLER.Settings.ThemeBook": "Libro",
+  "STORYTELLER.Settings.ThemeNewspaper": "Periódico",
+  "STORYTELLER.Settings.Size": "Tamaño del Relato en pantalla",
+  "STORYTELLER.Settings.SizeHint": "El 100% ocupa casi toda la altura de la pantalla, el 80% no ocupa más que el 80% de la altura de la pantalla"
+}

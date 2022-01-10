@@ -1,0 +1,30 @@
+/* Ernie's Modern UI */
+/* https://github.com/ernieayala/ernies-modern-layout */
+
+body.-emu .window-app.story-sheet {
+    background: none;
+    border: none;
+    box-shadow: none;
+}
+
+.-emu-layout body.-emu .window-app.story-sheet .window-header {
+    border: none;
+    padding: 0 4.3%;
+    margin-top: 1.85%;
+}
+
+.-emu-layout body.-emu .window-app.story-sheet .window-content {
+    margin: 0 4% 3% 4%;
+}
+
+.-emu-layout body.-emu .window-app.newspaper .window-content {
+    margin: 0 2% 3% 4%;
+}
+
+.-emu-layout body.-emu .window-app.newspaper .story-submit {
+    top: -1%!important;
+}
+
+body.-emu .window-app.story-sheet .window-content {
+    background: none!important;
+}
