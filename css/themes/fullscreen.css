@@ -1,0 +1,43 @@
+.window-app.fullscreen-story-sheet {
+    background: black;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    margin: 0;
+    z-index: 25!important;
+}
+
+.window-app.fullscreen-story-sheet .window-header {
+    border: none;
+    border-radius: 0;
+    z-index: 1;
+}
+
+.window-app.fullscreen-story-sheet .window-header .window-title {
+    opacity: 0;
+}
+
+.window-app.fullscreen-story-sheet .window-header a.close{
+    margin-right: 350px;
+}
+
+.window-app.fullscreen-story-sheet .window-content {
+    background: none;
+    padding: 0;
+    margin-top: -30px;
+    overflow: hidden;
+}
+
+.window-app.fullscreen-story-sheet label {
+    background-size: cover;
+}
+
+.window-app.fullscreen-story-sheet .image-container {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+}
+
+.window-app.fullscreen-story-sheet .file-picker {
+    display: none;
+}

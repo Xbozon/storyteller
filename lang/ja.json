@@ -1,7 +1,7 @@
 {
   "I18N.MAINTAINERS": ["Brother Sharp"],
 
-  "DOCUMENT.StoryEntry": "物語",
+  "STORYTELLER.StoryEntry": "物語",
   "JOURNAL.ActionConfigure": "設定",
 
   "STORYTELLER.CopyID": "物語IDをコピー",

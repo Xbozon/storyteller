@@ -1,7 +1,7 @@
 {
   "I18N.MAINTAINERS": ["Izan"],
 
-  "DOCUMENT.StoryEntry": "Relatos",
+  "STORYTELLER.StoryEntry": "Relatos",
   "JOURNAL.ActionConfigure": "Configuración",
 
   "STORYTELLER.CopyID": "Copia Historia ID",

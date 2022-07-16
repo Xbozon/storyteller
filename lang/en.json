@@ -1,10 +1,14 @@
 {
   "I18N.MAINTAINERS": ["Xbozon"],
 
-  "DOCUMENT.StoryEntry": "Story",
+  "STORYTELLER.BaseJournalEntry": "Default sheet",
+  "STORYTELLER.StoryEntry": "Story sheet",
+  "STORYTELLER.FullscreenStoryEntry": "(BETA) Fullscreen story",
+
   "JOURNAL.ActionConfigure": "Configure",
 
-  "STORYTELLER.CopyID": "Copy story ID",
+  "STORYTELLER.CopyID": "Copy story macros",
+  "STORYTELLER.CopyIDMessage": "The macro for calling the story was copied to the clipboard.",
   "STORYTELLER.Journal": "Journals",
   "STORYTELLER.Stories": "Stories",
   "STORYTELLER.ChangeImage": "Click here to change image",

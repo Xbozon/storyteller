@@ -1,0 +1,17 @@
+<form class="{{cssClass}}" autocomplete="off">
+    <label>
+        {{filePicker target="img" type="image"}}
+        <input class="image" type="hidden" onchange="game.StoryTeller.changeLinkedImageSrc(this)" name="img"
+               placeholder="path/image.png" value="{{image}}" data-target="image" data-dtype="String"/>
+        <div class="image-container" style="background-image: url('{{#if data.img}}{{data.img}}{{else}} {{/if}}')">
+            {{#if data.img}} {{else}}
+            <div class="storyteller-tooltip">{{ localize "STORYTELLER.ChangeImage"}}</div>
+            {{/if}}
+        </div>
+    </label>
+    {{#if editable}}
+    <button type="submit" name="submit" class="story-submit"><i class="fas fa-feather-alt"></i> {{ localize
+        "JOURNAL.Submit"}}
+    </button>
+    {{/if}}
+</form>
