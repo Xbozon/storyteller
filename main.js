@@ -66,6 +66,8 @@ Hooks.on("init", () => {
 
 Hooks.on("ready", () => {
     EntitySheetConfig.updateDefaultSheets(game.settings.get("core", "sheetClasses"));
+
+    restoreOldStories()
     console.log("Storyteller | Ready")
 })
 
@@ -136,4 +138,37 @@ function registerSettings() {
         default: "book",
         config: true,
     });
+
+    // old stuff
+    game.settings.register('storyteller', 'storiesEntries', {
+        scope: 'world',
+        config: false,
+        type: Object,
+        default: {}
+    });
+    game.settings.register('storyteller', 'restored', {
+        scope: 'world',
+        config: false,
+        type: Boolean,
+        default: false,
+    });
+}
+
+function restoreOldStories() {
+    if (game.settings.get('storyteller', 'restored')) {
+        return
+    }
+
+    let stories = game.settings.get('storyteller', 'storiesEntries');
+    for (let k of Object.keys(stories)) {
+        JournalEntry.create({name: stories[k].name, content: stories[k].content, img: stories[k].img})
+    }
+
+    ui.notifications.info(game.i18n.format("Outdated stories have been restored in the form of a regular journal. Please change the default style to Story Sheet manually.", {
+        mode: "text",
+        title: "Info",
+        which: "authorized"
+    }));
+
+    game.settings.set('storyteller', 'restored', true)
 }
