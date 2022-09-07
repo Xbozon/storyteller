@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Kurale&display=swap');
 @import "compability.css";
+@import "themes/broadsheet.css";
+@import "themes/storyteller (reverse).css";
+@import "themes/storyteller (two-pages).css";
+@import "themes/storyteller (double).css";
 @import "themes/newspaper.css";
 @import "themes/fullscreen.css";
 
@@ -87,7 +91,6 @@ nav.storyteller-nav.tabs {
 
 .page.left > .page-inner {
     padding: 1% 6% 6% 6.25%;
-
     height: 100%;
 }
 
@@ -95,11 +98,11 @@ nav.storyteller-nav.tabs {
     padding: 0% 0% 0% 2%;
 }
 
-.page.right > .page-inner.settings {
+.page > .page-inner.settings {
     padding: 5%;
 }
 
-.page.right > .page-inner.settings .settings {
+.page > .page-inner.settings .settings {
     background-color: #0000000f;
     padding: 2%;
     border-radius: 10px;
@@ -108,11 +111,11 @@ nav.storyteller-nav.tabs {
     font-size: 1.5em;
 }
 
-.page.right > .page-inner.hidden {
+.page > .page-inner.hidden {
     display: none;
 }
 
-.page.right > .page-inner .file-picker {
+.page > .page-inner .file-picker {
     display: none!important;
 }
 
@@ -131,7 +134,8 @@ nav.storyteller-nav.tabs {
     height: 100%;
     background-position: center center;
     background-color: #80808033;
-    background-size: cover;
+    background-size: contain;
+    background-repeat: no-repeat;
 
     -webkit-mask-image: url(../img/journal_mask.webp);
     -webkit-mask-size: 100% 100%;
@@ -167,13 +171,13 @@ nav.storyteller-nav.tabs {
     opacity: 0;
 }
 
-.page.left > .page-inner ::-webkit-scrollbar-thumb {
+.page > .page-inner ::-webkit-scrollbar-thumb {
     outline: none;
     border-radius: 5px;
     border: none;
     background: #74645526;
 }
 
-.page.left > .page-inner ::-webkit-scrollbar-track {
+.page > .page-inner ::-webkit-scrollbar-track {
     background: transparent !important;
 }
