@@ -1,4 +1,9 @@
 import { StorySheet } from './sheets/story-sheet.js';
+import { StorySheetReverse } from './sheets/story-sheet (reverse).js';
+import { StorySheet2Pages } from './sheets/story-sheet (two-pages).js';
+import { StorySheetDouble } from './sheets/story-sheet (double).js';
+import { BroadsheetSheet } from './sheets/broadsheet.js';
+import { NewspaperSheet } from './sheets/newspaper.js';
 import { FullscreenStorySheet } from './sheets/fullscreen-story-sheet.js';
 
 class StoryTeller {
@@ -6,6 +11,11 @@ class StoryTeller {
         return {
             base: JournalSheet,
             story: StorySheet,
+            reverse: StorySheetReverse,
+            twopages: StorySheet2Pages,
+            doubleimage: StorySheetDouble,
+            broadsheet: BroadsheetSheet,
+            newspaper: NewspaperSheet,
             fullscreen: FullscreenStorySheet,
         };
     }
@@ -14,6 +24,11 @@ class StoryTeller {
         return {
             base: "STORYTELLER.BaseJournalEntry",
             story: "STORYTELLER.StoryEntry",
+            reverse: "STORYTELLER.StorySheetReverse",
+            twopages: "STORYTELLER.StorySheet2Pages",
+            doubleimage: "STORYTELLER.StorySheetDouble",
+            broadsheet: "STORYTELLER.BroadsheetEntry",
+            newspaper: "STORYTELLER.NewspaperEntry",
             fullscreen: "STORYTELLER.FullscreenStoryEntry",
         };
     }
