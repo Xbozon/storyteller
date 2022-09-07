@@ -1,0 +1,78 @@
+.window-app.story-sheet-double {
+    background: none;
+    border: none;
+    box-shadow: none;
+}
+
+.window-app.story-sheet-double .window-header {
+    border: none;
+    padding: 0 4.3%;
+    margin-top: 1.5%;
+}
+
+.window-app.story-sheet-double .window-content {
+    background: none;
+    overflow: initial;
+    margin: 0 4% 3% 4%;
+    padding: 0.34%;
+    /* hack */
+    height: 0;
+}
+
+.window-app.story-sheet-double .window-content form {
+    height: 100%;
+}
+
+.story-sheet-double:before{
+    position: absolute;
+    content: " ";
+    width: 100%;
+    height: 100%;
+    background: url(../../img/book.webp);
+    background-size: 100% 100%;
+    z-index: -1;
+}
+
+.story-sheet-double .pages {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100%;
+}
+
+.story-sheet-double .pages > .page {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex: 1;
+    flex-shrink: 0;
+}
+
+.story-sheet-double .pages .page {
+    height: 100%;
+}
+/*
+.story-sheet-double .pages .page > .page-inner {
+    padding: 1% 6% 6% 6.25%;
+    height: 100%;
+}
+*/
+/* top right bottom left */
+.story-sheet-double .pages .page > .page-inner {
+    padding: 0% 1% 1% 1%;
+}
+
+.page-inner .doubleimage-container {
+    width: 100%;
+    height: 100%;
+    background-position: center center;
+    background-color: #80808033;
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    -webkit-mask-image: url("journal_mask (no-margin).webp");
+    -webkit-mask-size: 100% 100%;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+}

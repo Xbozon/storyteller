@@ -1,0 +1,72 @@
+.window-app.story-sheet-pages {
+    background: none;
+    border: none;
+    box-shadow: none;
+}
+
+.window-app.story-sheet-pages .window-header {
+    border: none;
+    padding: 0 4.3%;
+    margin-top: 1.5%;
+}
+
+.window-app.story-sheet-pages .window-content {
+    background: none;
+    overflow: initial;
+    margin: 0 4% 3% 4%;
+    padding: 0.34%;
+    /* hack */
+    height: 0;
+}
+
+.window-app.story-sheet-pages .window-content form {
+    height: 100%;
+}
+
+.story-sheet-pages:before{
+    position: absolute;
+    content: " ";
+    width: 100%;
+    height: 100%;
+    background: url(../../img/book.webp);
+    background-size: 100% 100%;
+    z-index: -1;
+}
+
+.story-sheet-pages .pages {
+    /* display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; */
+    width: 100%;
+    height: 100%;
+}
+/*
+.story-sheet-pages .pages > .page {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex: 1;
+    flex-shrink: 0;
+}
+
+.page.left {
+    height: 100%;
+}
+*/
+.story-sheet-pages .pages > .page {
+    height: 100%;
+}
+/* top right bottom left */
+.story-sheet-pages .pages .page > .page-inner {
+    padding: 0% 1% 1.5% 1%;
+    height: 100%;
+}
+/*
+.page.right > .page-inner {
+    padding: 0% 0% 0% 2%;
+}
+*/
+
+.window-app.story-sheet-pages .window-header .window-title {
+    opacity: 0;
+}
