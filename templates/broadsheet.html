@@ -1,0 +1,18 @@
+<form class="{{cssClass}}" autocomplete="off">
+    <div class="pages">
+        <div class="page top">
+            <div class="page-inner settings hidden">
+                <div class="settings">
+                    <label>{{ localize "STORYTELLER.StoryName"}}</label>
+                    <input name="name" type="text" value="{{data.name}}" placeholder="Entry Title"/>
+                </div>
+            </div>
+            <div class="page-inner">
+                {{editor content=data.content target="content" button=true editable=editable owner=owner}}
+            </div>
+            {{#if editable}}
+            <button type="submit" name="submit" class="story-submit"><i class="fas fa-feather-alt"></i> {{ localize "JOURNAL.Submit"}}</button>
+            {{/if}}
+        </div>
+    </div>
+</form>
