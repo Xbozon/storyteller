@@ -3,6 +3,11 @@
 
   "STORYTELLER.BaseJournalEntry": "Default sheet",
   "STORYTELLER.StoryEntry": "Story sheet",
+  "STORYTELLER.StorySheetReverse": "Story sheet (reverse)",
+  "STORYTELLER.StorySheet2Pages": "Story sheet (two-pages)",
+  "STORYTELLER.StorySheetDouble": "Story sheet (double-wide image)",
+  "STORYTELLER.BroadsheetEntry": "Broadsheet",
+  "STORYTELLER.NewspaperEntry": "Newspaper",
   "STORYTELLER.FullscreenStoryEntry": "(BETA) Fullscreen story",
 
   "JOURNAL.ActionConfigure": "Configure",
