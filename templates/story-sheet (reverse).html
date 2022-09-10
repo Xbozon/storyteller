@@ -10,9 +10,6 @@
                     </div>
                 </label>
             </div>
-            <div class="prev">
-                <img src="modules/storyteller/img/left-tab.png" class="pageTab" name="{{data.name}}" onclick="game.StoryTeller.showPrevPage(this.name)" title="Previous Page" onmouseenter="this.src ='modules/storyteller/img/left-tab.gif';" onmouseout="this.src ='modules/storyteller/img/left-tab.png';" />
-            </div>
             <div class="page-inner settings hidden">
                 <div class="settings">
                     <label>{{ localize "STORYTELLER.StoryName"}}</label>
@@ -22,6 +19,9 @@
             {{#if editable}}
             <button type="submit" name="submit" class="story-submit"><i class="fas fa-feather-alt"></i> {{ localize "JOURNAL.Submit"}}</button>
             {{/if}}
+            <div class="prev">
+                <img src="modules/storyteller/img/left-tab.png" class="pageTab" name="{{data.name}}" onclick="game.StoryTeller.showPrevPage(this.name)" title="Previous Page" onmouseenter="this.src ='modules/storyteller/img/left-tab.gif';" onmouseout="this.src ='modules/storyteller/img/left-tab.png';" />
+            </div>
         </div>
         <div class="page rright">
             <div class="page-inner">
