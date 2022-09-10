@@ -69,6 +69,57 @@ class StoryTeller {
         let story = game.journal.get(id)
         story.sheet.render(true)
     }
+
+    showPrevPage(entry) {
+        console.log("this entry: " + entry);
+        try {
+            var page = parseInt(entry.replace(/^(.*)(\d+)$/, "$2"));
+            console.log("this page number: " + page);
+            if (page != null) {
+                var book = entry.replace(/^(.*)(\d+)$/, "$1");
+                console.log("this book title: " + book);
+                try {
+                    if (page != 1) {
+                        var prev = game.journal.find(x => x.name==(book + (page-1).toString())).id;
+                        game.journal.get(prev).sheet.render(true);
+                        game.journal.find(x => x.name==entry).sheet.close();
+                    } else {
+                        if (book != entry) {
+                            var prev = game.journal.find(x => x.name==book).id;
+                            game.journal.get(prev).sheet.render(true);
+                            game.journal.find(x => x.name==entry).sheet.close();
+                            
+                        }
+                    }
+                } catch { }
+            }
+        } catch { }
+    }
+
+    showNextPage(entry) {
+        try {
+            var page = parseInt(entry.replace(/^(.*)(\d+)$/, "$2"));
+            console.log("this page number: " + page);
+            if (isNaN(page)) {
+                console.log("this is first page");
+                var book = entry;
+                console.log("this book title: " + book);
+                var next = game.journal.find(x => x.name==(book + 1)).id;
+                game.journal.get(next).sheet.render(true);
+                game.journal.find(x => x.name==entry).sheet.close();
+            } else {
+                console.log("look for next page number");
+                var book = entry.replace(/^(.*)(\d+)$/, "$1");
+                console.log("this book title: " + book);
+                try {
+                    console.log("next entry: " + book + (page+1).toString());
+                    var next = game.journal.find(x => x.name==(book + (page+1).toString())).id;
+                    game.journal.get(next).sheet.render(true);
+                    game.journal.find(x => x.name==entry).sheet.close();
+                } catch { }
+            }
+        } catch { }
+    }
 }
 
 Hooks.on("init", () => {
