@@ -10,6 +10,12 @@
                     </div>
                 </label>
             </div>
+            <div class="prev">
+                <img src="modules/storyteller/img/left-tab.png" class="pageTab" name="{{data.name}}" onclick="game.StoryTeller.showPrevPage(this.name)" title="Previous Page" onmouseenter="this.src ='modules/storyteller/img/left-tab.gif';" onmouseout="this.src ='modules/storyteller/img/left-tab.png';" />
+            </div>
+            <div class="next">
+                <img src="modules/storyteller/img/right-tab.png" class="pageTab" name="{{data.name}}" onclick="game.StoryTeller.showNextPage(this.name)" title="Next Page" onmouseenter="this.src ='modules/storyteller/img/right-tab.gif';" onmouseout="this.src ='modules/storyteller/img/right-tab.png';" />
+            </div>
             <div class="page-inner settings hidden">
                 <div class="settings">
                     <label>{{ localize "STORYTELLER.StoryName"}}</label>
