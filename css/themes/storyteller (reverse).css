@@ -76,3 +76,7 @@
     left: 3%;
     border: none;
 }
+
+.window-app.story-sheet-reverse .window-header .window-title {
+    opacity: 0;
+}
