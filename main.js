@@ -4,6 +4,7 @@ import { StorySheet2Pages } from './sheets/story-sheet (two-pages).js';
 import { StorySheetDouble } from './sheets/story-sheet (double).js';
 import { BroadsheetSheet } from './sheets/broadsheet.js';
 import { NewspaperSheet } from './sheets/newspaper.js';
+import { Tablet } from './sheets/tablet.js';
 import { FullscreenStorySheet } from './sheets/fullscreen-story-sheet.js';
 
 class StoryTeller {
@@ -16,6 +17,7 @@ class StoryTeller {
             doubleimage: StorySheetDouble,
             broadsheet: BroadsheetSheet,
             newspaper: NewspaperSheet,
+            tablet: Tablet,
             fullscreen: FullscreenStorySheet,
         };
     }
@@ -29,6 +31,7 @@ class StoryTeller {
             doubleimage: "STORYTELLER.StorySheetDouble",
             broadsheet: "STORYTELLER.BroadsheetEntry",
             newspaper: "STORYTELLER.NewspaperEntry",
+            tablet: "STORYTELLER.TabletEntry",
             fullscreen: "STORYTELLER.FullscreenStoryEntry",
         };
     }
@@ -73,10 +76,10 @@ class StoryTeller {
     showPrevPage(entry) {
         console.log("this entry: " + entry);
         try {
-            var page = parseInt(entry.replace(/^(.*)(\d+)$/, "$2"));
+            var page = parseInt(entry.replace(/^(.*[^\d])(\d+)$/, "$2"));
             console.log("this page number: " + page);
             if (page != null) {
-                var book = entry.replace(/^(.*)(\d+)$/, "$1");
+                var book = entry.replace(/^(.*[^\d])(\d+)$/, "$1");
                 console.log("this book title: " + book);
                 try {
                     if (page != 1) {
@@ -98,7 +101,7 @@ class StoryTeller {
 
     showNextPage(entry) {
         try {
-            var page = parseInt(entry.replace(/^(.*)(\d+)$/, "$2"));
+            var page = parseInt(entry.replace(/^(.*[^\d])(\d+)$/, "$2"));
             console.log("this page number: " + page);
             if (isNaN(page)) {
                 console.log("this is first page");
@@ -109,7 +112,7 @@ class StoryTeller {
                 game.journal.find(x => x.name==entry).sheet.close();
             } else {
                 console.log("look for next page number");
-                var book = entry.replace(/^(.*)(\d+)$/, "$1");
+                var book = entry.replace(/^(.*[^\d])(\d+)$/, "$1");
                 console.log("this book title: " + book);
                 try {
                     console.log("next entry: " + book + (page+1).toString());
