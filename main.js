@@ -2,9 +2,9 @@ import { StorySheet } from './sheets/story-sheet.js';
 import { StorySheetReverse } from './sheets/story-sheet (reverse).js';
 import { StorySheet2Pages } from './sheets/story-sheet (two-pages).js';
 import { StorySheetDouble } from './sheets/story-sheet (double).js';
+import { StoryCover } from './sheets/story-cover.js';
 import { BroadsheetSheet } from './sheets/broadsheet.js';
 import { NewspaperSheet } from './sheets/newspaper.js';
-import { Tablet } from './sheets/tablet.js';
 import { FullscreenStorySheet } from './sheets/fullscreen-story-sheet.js';
 
 class StoryTeller {
@@ -15,9 +15,9 @@ class StoryTeller {
             reverse: StorySheetReverse,
             twopages: StorySheet2Pages,
             doubleimage: StorySheetDouble,
+            cover: StoryCover,
             broadsheet: BroadsheetSheet,
             newspaper: NewspaperSheet,
-            tablet: Tablet,
             fullscreen: FullscreenStorySheet,
         };
     }
@@ -29,9 +29,9 @@ class StoryTeller {
             reverse: "STORYTELLER.StorySheetReverse",
             twopages: "STORYTELLER.StorySheet2Pages",
             doubleimage: "STORYTELLER.StorySheetDouble",
+            cover: "STORYTELLER.StoryCover",
             broadsheet: "STORYTELLER.BroadsheetEntry",
             newspaper: "STORYTELLER.NewspaperEntry",
-            tablet: "STORYTELLER.TabletEntry",
             fullscreen: "STORYTELLER.FullscreenStoryEntry",
         };
     }
