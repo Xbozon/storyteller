@@ -50,11 +50,12 @@
 }
 
 .story-cover .pages .page {
-    height: 100%;
-    width: 100%;
+    padding: 2% 2% 2% 2%;
+    height: 96%;
+    width: 96%;
     position: absolute;
-    left: 0px;
-    top: 0px;
+    left: 2%;
+    top: 2%;
 }
 /*
 .story-cover .pages .page > .page-inner {
@@ -64,10 +65,11 @@
 */
 /* top right bottom left */
 .story-cover .pages .page > .page-inner {
-    padding: 1% 1% 1% 1%;
     position: relative;
-    bottom: -10px;
-    right: -10px;
+    height: 100%;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .page-inner .coverimage-container {
