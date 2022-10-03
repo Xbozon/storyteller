@@ -2,20 +2,19 @@ const bookSizeCorrection = 1
 const bookWidth = 1390
 const bookHeight = 937
 
-export class StorySheet extends DocumentSheet {
+export class StorySheet extends JournalSheet {
     pageFlip = "modules/storyteller/sounds/paper-flip.mp3"
 
     static get defaultOptions() {
         return foundry.utils.mergeObject(super.defaultOptions, {
             baseApplication: 'JournalSheet',
-            classes: ["sheet", "story-sheet", game.settings.get('storyteller', 'theme')],
+            classes: ["sheet", "story-sheet"],
             template: 'modules/storyteller/templates/story-sheet.html',
             width: getBookWidth(),
             height: getBookHeight(),
             resizable: false,
             closeOnSubmit: false,
             submitOnClose: true,
-            viewPermission: CONST.ENTITY_PERMISSIONS.NONE,
         });
     }
 
@@ -29,6 +28,25 @@ export class StorySheet extends DocumentSheet {
     async _render(force, options = {}) {
         this.sound()
         await super._render(force, options);
+
+        let data = this.getData().data
+        let startPage = data.pages.length >= 1 ? 2 : 1
+        let savedPage = getPage(data._id)
+
+        $('#story-' + data._id).turn({
+            duration: 500,
+            page: savedPage >= 0 ? savedPage : startPage,
+             acceleration: true,
+            //  display: 'single',
+            // autoCenter: true,
+            turnCorners: "bl,br",
+            elevation: 300,
+            when: {
+                turned: function (e, page) {
+                    setPage(data._id, page)
+                }
+            }
+        });
     }
 
     /** @inheritdoc */
@@ -44,18 +62,6 @@ export class StorySheet extends DocumentSheet {
         const buttons = super._getHeaderButtons();
 
         if (game.user.isGM) {
-            buttons.unshift({
-                label: "JOURNAL.ActionShow",
-                class: "share-image",
-                icon: "fas fa-eye",
-                onclick: ev => this._onShowPlayers(ev)
-            });
-            buttons.unshift({
-                label: "JOURNAL.ActionConfigure",
-                class: "switch-settings",
-                icon: "fas fa-cog",
-                onclick: ev => this._onConfigureStory(ev)
-            })
             buttons.unshift({
                 label: "STORYTELLER.CopyID",
                 class: "switch-copyid",
@@ -126,4 +132,15 @@ function getBookWidth() {
 function getBookHeight() {
     let bookSize = game.settings.get('storyteller', 'size') / 100
     return window.innerHeight * bookSize * bookSizeCorrection
+}
+
+async function setPage(id, page) {
+    let pages = game.settings.get('storyteller', 'pages')
+    pages[id] = page
+    await game.settings.set('storyteller', 'pages', pages)
+}
+
+function getPage(id) {
+    let pages = game.settings.get('storyteller', 'pages')
+    return pages[id]
 }

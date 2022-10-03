@@ -18,7 +18,7 @@ For best effect.
 
 ## Creating a new story
 
-![alt text](img/step-1.jpg "Title")
+![alt text](img/step-1.webp "Title")
 
 ## Using with macros
 

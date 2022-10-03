@@ -1,12 +1,12 @@
 import { StorySheet } from './sheets/story-sheet.js';
 import { FullscreenStorySheet } from './sheets/fullscreen-story-sheet.js';
-
+CONFIG.debug = true
 class StoryTeller {
     static getDocumentTypes() {
         return {
-            base: JournalSheet,
+            base: StorySheet, // ?wut
             story: StorySheet,
-            fullscreen: FullscreenStorySheet,
+            // fullscreen: FullscreenStorySheet,
         };
     }
 
@@ -14,7 +14,7 @@ class StoryTeller {
         return {
             base: "STORYTELLER.BaseJournalEntry",
             story: "STORYTELLER.StoryEntry",
-            fullscreen: "STORYTELLER.FullscreenStoryEntry",
+            // fullscreen: "STORYTELLER.FullscreenStoryEntry",
         };
     }
 
@@ -54,6 +54,14 @@ class StoryTeller {
         let story = game.journal.get(id)
         story.sheet.render(true)
     }
+
+    setVeryDirtyHack(type = "") {
+        this.activeType = type
+    }
+
+    getVeryDirtyHack() {
+        return this.activeType
+    }
 }
 
 Hooks.on("init", () => {
@@ -65,17 +73,25 @@ Hooks.on("init", () => {
 });
 
 Hooks.on("ready", () => {
-    EntitySheetConfig.updateDefaultSheets(game.settings.get("core", "sheetClasses"));
-
     restoreOldStories()
     console.log("Storyteller | Ready")
+})
+
+Hooks.on("closeDialog", (dialog, html, data) => {
+    game.StoryTeller.setVeryDirtyHack("")
+    let selectForm = document.getElementById("app-" + dialog.appId)
+    let select = selectForm.querySelector("select")
+    if (select) {
+        game.StoryTeller.setVeryDirtyHack(select.value)
+    }
 })
 
 Hooks.on("preCreateJournalEntry", preCreateJournalEntry)
 function preCreateJournalEntry (entry, data, options, userId) {
     let types = StoryTeller.getDocumentTypes();
-    if (Object.keys(types).includes(data.type)) {
-        options.type = data.type
+    let currentType = game.StoryTeller.getVeryDirtyHack()
+    if (Object.keys(types).includes(currentType) && currentType !== "base") {
+        options.type = game.StoryTeller.getVeryDirtyHack()
     }
 }
 
@@ -126,17 +142,11 @@ function registerSettings() {
         default: 80,
         config: true
     });
-    game.settings.register('storyteller', 'theme', {
-        name: game.i18n.localize('STORYTELLER.Settings.Theme'),
-        hint: game.i18n.localize('STORYTELLER.Settings.ThemeHint'),
-        scope: "world",
-        type: String,
-        choices: {
-            "book": game.i18n.localize('STORYTELLER.Settings.ThemeBook'),
-            "newspaper": game.i18n.localize('STORYTELLER.Settings.ThemeNewspaper')
-        },
-        default: "book",
-        config: true,
+    game.settings.register('storyteller', 'pages', {
+        scope: "client",
+        type: Object,
+        default: {},
+        config: false,
     });
 
     // old stuff

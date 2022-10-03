@@ -11,7 +11,6 @@ export class FullscreenStorySheet extends StorySheet {
             resizable: false,
             closeOnSubmit: false,
             submitOnClose: true,
-            viewPermission: CONST.ENTITY_PERMISSIONS.NONE,
         });
     }
 
