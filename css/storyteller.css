@@ -93,6 +93,10 @@ nav.storyteller-nav.tabs {
     height: 100%;
 }
 
+.story-sheet .journal-page-content img {
+    border: none;
+}
+
 .story-sheet .page-num.num-start .pages-list>ol>li .page-title{
     cursor: pointer;
 }

@@ -1,6 +1,6 @@
 import { StorySheet } from './sheets/story-sheet.js';
 import { FullscreenStorySheet } from './sheets/fullscreen-story-sheet.js';
-CONFIG.debug = true
+
 class StoryTeller {
     static getDocumentTypes() {
         return {
