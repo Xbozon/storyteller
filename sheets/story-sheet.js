@@ -24,6 +24,16 @@ export class StorySheet extends JournalSheet {
         }
     }
 
+    getData(options) {
+        if(options) {
+            const theme = game.settings.get('storyteller', 'theme');
+            if (options.classes.indexOf(theme) === -1) {
+             options.classes.push(theme);
+            }
+        }
+        return super.getData(options);
+    }
+
     /** @inheritdoc */
     async _render(force, options = {}) {
         this.sound()

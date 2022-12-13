@@ -149,6 +149,18 @@ function registerSettings() {
         config: false,
     });
 
+    game.settings.register('storyteller', 'theme', {
+        name: game.i18n.localize('STORYTELLER.Settings.Theme'),
+        hint: game.i18n.localize('STORYTELLER.Settings.ThemeHint'),
+        scope: 'world',
+        type: String,
+        choices: {
+            book: game.i18n.localize('STORYTELLER.Settings.ThemeBook'),
+        },
+        default: 'book',
+        config: true,
+    });
+
     // old stuff
     game.settings.register('storyteller', 'storiesEntries', {
         scope: 'world',
