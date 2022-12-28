@@ -2,26 +2,49 @@ import { StorySheet } from './sheets/story-sheet.js';
 import { FullscreenStorySheet } from './sheets/fullscreen-story-sheet.js';
 
 class StoryTeller {
+
+    static types = {
+        base: StorySheet, // ?wut
+        story: StorySheet,
+        // fullscreen: FullscreenStorySheet,
+    }
+
+    static labels = {
+        base: "STORYTELLER.BaseJournalEntry",
+        story: "STORYTELLER.StoryEntry",
+        // fullscreen: "STORYTELLER.FullscreenStoryEntry",
+    }
+
+
     static getDocumentTypes() {
-        return {
-            base: StorySheet, // ?wut
-            story: StorySheet,
-            // fullscreen: FullscreenStorySheet,
-        };
+        return StoryTeller.types;
     }
 
     static getTypeLabels() {
-        return {
-            base: "STORYTELLER.BaseJournalEntry",
-            story: "STORYTELLER.StoryEntry",
-            // fullscreen: "STORYTELLER.FullscreenStoryEntry",
-        };
+        return StoryTeller.labels;
     }
 
     init() {
         let types = StoryTeller.getDocumentTypes();
         let labels = StoryTeller.getTypeLabels();
 
+        this.registerObjects(types, labels)
+    }
+
+    registerAddonSheet(s) {
+        let types = {}
+        let labels = {}
+
+        types[s.key] = s.sheet
+        labels[s.key] = s.label
+
+        this.registerObjects(types, labels)
+
+        StoryTeller.types[s.key] = s.sheet
+        StoryTeller.labels[s.key] = s.label
+    }
+
+    registerObjects(types, labels) {
         for (let [k, v] of Object.entries(labels)) {
             Journal.registerSheet("journals", types[k], {
                 types: ["base"],
