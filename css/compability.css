@@ -28,3 +28,16 @@ body.-emu .window-app.story-sheet {
 body.-emu .window-app.story-sheet .window-content {
     background: none!important;
 }
+
+/* Monks little details */
+
+body.change-windows:not(.system-forbidden-lands) .window-app.story-sheet:not(.image-popout) {
+    background: none!important;
+}
+
+body.change-windows:not(.system-forbidden-lands) .window-app.story-sheet > header {
+    border: none!important;
+    border-bottom: none!important;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+}

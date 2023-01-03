@@ -93,6 +93,10 @@ Hooks.on("init", () => {
     game.StoryTeller.init()
 
     console.log("Storyteller | Init");
+
+    if (game.settings.get('storyteller', 'enableScroll')) {
+        addScrollCss()
+    }
 });
 
 Hooks.on("ready", () => {
@@ -165,6 +169,16 @@ function registerSettings() {
         default: 80,
         config: true
     });
+
+    game.settings.register('storyteller', 'enableScroll', {
+        name: game.i18n.localize('STORYTELLER.Settings.EnableScroll'),
+        hint: game.i18n.localize('STORYTELLER.Settings.EnableScrollHint'),
+        scope: "client",
+        type: Boolean,
+        default: false,
+        config: true,
+    });
+
     game.settings.register('storyteller', 'pages', {
         scope: "client",
         type: Object,
@@ -204,4 +218,9 @@ function restoreOldStories() {
     }));
 
     game.settings.set('storyteller', 'restored', true)
+}
+
+function addScrollCss() {
+    let sheet = window.document.styleSheets[0];
+    sheet.insertRule('.page-num.num-start,.page-num.page { overflow-y: scroll; }', sheet.cssRules.length);
 }

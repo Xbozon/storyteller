@@ -22,5 +22,8 @@
   "STORYTELLER.Settings.ThemeBook": "Book",
   "STORYTELLER.Settings.ThemeNewspaper": "Newspaper",
   "STORYTELLER.Settings.Size": "The size of the story on the screen",
-  "STORYTELLER.Settings.SizeHint": "100% takes up almost the entire screen height, 80% takes up no more than 80% of the screen height"
+  "STORYTELLER.Settings.SizeHint": "100% takes up almost the entire screen height, 80% takes up no more than 80% of the screen height",
+
+  "STORYTELLER.Settings.EnableScroll": "Enables scroll support inside the book",
+  "STORYTELLER.Settings.EnableScrollHint": "BETA. It doesn't look good, but sometimes functionality is more important than beauty. Allows you to scroll the text inside the page"
 }

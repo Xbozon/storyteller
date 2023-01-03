@@ -82,6 +82,17 @@ nav.storyteller-nav.tabs {
     background: transparent !important;
 }
 
+.story-sheet .page::-webkit-scrollbar-thumb {
+    outline: none;
+    border-radius: 5px;
+    border: none;
+    background: #74645526;
+}
+
+.story-sheet .page::-webkit-scrollbar-track {
+    background: transparent !important;
+}
+
 .story-sheet .journal-page-content,
 .story-sheet .page-num.num-start h1,
 .story-sheet .page-num.num-start .pages-list>ol {
