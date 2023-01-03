@@ -25,8 +25,13 @@ For best effect.
 ### Step 1. Copy story ID from context menu
 ![alt text](img/copy-id.jpg "Title")
 ### Step 2. Create new macro, use the copied ID
+For all players:
 ```javascript
 game.StoryTeller.showStoryByIDToAll("story1hu5kclu3f7")
+```
+For the user who triggered the trigger:
+```javascript
+game.StoryTeller.showStoryToPlayerOnly("qoWx7HNFZN1jgECs")
 ```
 ![alt text](img/macros.jpg "Title")
 ### Step 3. Use the calling of this macro to show your story to all the players at once.
