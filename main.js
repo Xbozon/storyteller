@@ -4,14 +4,14 @@ import { FullscreenStorySheet } from './sheets/fullscreen-story-sheet.js';
 class StoryTeller {
 
     static types = {
-        base: StorySheet, // ?wut
+        default: JournalSheet,
         story: StorySheet,
         // fullscreen: FullscreenStorySheet,
     }
 
     static labels = {
-        base: "STORYTELLER.BaseJournalEntry",
         story: "STORYTELLER.StoryEntry",
+        default: "STORYTELLER.BaseJournalEntry",
         // fullscreen: "STORYTELLER.FullscreenStoryEntry",
     }
 
@@ -46,6 +46,8 @@ class StoryTeller {
 
     registerObjects(types, labels) {
         for (let [k, v] of Object.entries(labels)) {
+            if (k === 'default') continue
+
             Journal.registerSheet("journals", types[k], {
                 types: ["base"],
                 makeDefault: false,
@@ -100,7 +102,6 @@ Hooks.on("init", () => {
 });
 
 Hooks.on("ready", () => {
-    restoreOldStories()
     console.log("Storyteller | Ready")
 })
 
@@ -117,7 +118,7 @@ Hooks.on("preCreateJournalEntry", preCreateJournalEntry)
 function preCreateJournalEntry (entry, data, options, userId) {
     let types = StoryTeller.getDocumentTypes();
     let currentType = game.StoryTeller.getVeryDirtyHack()
-    if (Object.keys(types).includes(currentType) && currentType !== "base") {
+    if (Object.keys(types).includes(currentType) && currentType !== "default") {
         options.type = game.StoryTeller.getVeryDirtyHack()
     }
 }
@@ -199,25 +200,6 @@ function registerSettings() {
         type: Boolean,
         default: false,
     });
-}
-
-function restoreOldStories() {
-    if (game.settings.get('storyteller', 'restored')) {
-        return
-    }
-
-    let stories = game.settings.get('storyteller', 'storiesEntries');
-    for (let k of Object.keys(stories)) {
-        JournalEntry.create({name: stories[k].name, content: stories[k].content, img: stories[k].img})
-    }
-
-    ui.notifications.info(game.i18n.format("Outdated stories have been restored in the form of a regular journal. Please change the default style to Story Sheet manually.", {
-        mode: "text",
-        title: "Info",
-        which: "authorized"
-    }));
-
-    game.settings.set('storyteller', 'restored', true)
 }
 
 function addScrollCss() {
