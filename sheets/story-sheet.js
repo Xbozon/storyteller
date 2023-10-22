@@ -1,14 +1,19 @@
 const bookSizeCorrection = 1
 const bookWidth = 1390
 const bookHeight = 937
-
+CONFIG.debug.hooks = true
 export class StorySheet extends JournalSheet {
     pageFlip = "modules/storyteller/sounds/paper-flip.mp3"
+    static classes = ["sheet", "story-sheet"];
 
     static get defaultOptions() {
+        if (game.settings.get('storyteller', 'enableScroll')) {
+            this.classes.push("scrollable")
+        }
+
         return foundry.utils.mergeObject(super.defaultOptions, {
             baseApplication: 'JournalSheet',
-            classes: ["sheet", "story-sheet"],
+            classes: this.classes,
             template: 'modules/storyteller/templates/story-sheet.html',
             width: getBookWidth(),
             height: getBookHeight(),

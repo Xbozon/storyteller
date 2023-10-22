@@ -150,6 +150,11 @@ nav.storyteller-nav.tabs {
     border: 1px solid var(--color-border-light-tertiary);
 }
 
+.story-sheet.scrollable .page-num.num-start,
+.story-sheet.scrollable .page-num.page{
+    overflow-y: scroll;
+}
+
 .story-sheet .journal-entry-page.num-start.editor-edit {
     padding: 1.34% 4.34% 0.34% 4.34%;
 }

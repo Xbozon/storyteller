@@ -95,10 +95,6 @@ Hooks.on("init", () => {
     game.StoryTeller.init()
 
     console.log("Storyteller | Init");
-
-    if (game.settings.get('storyteller', 'enableScroll')) {
-        addScrollCss()
-    }
 });
 
 Hooks.on("ready", () => {
@@ -108,9 +104,11 @@ Hooks.on("ready", () => {
 Hooks.on("closeDialog", (dialog, html, data) => {
     game.StoryTeller.setVeryDirtyHack("")
     let selectForm = document.getElementById("app-" + dialog.appId)
-    let select = selectForm.querySelector("select")
-    if (select) {
-        game.StoryTeller.setVeryDirtyHack(select.value)
+    if (selectForm) {
+        let select = selectForm.querySelector("select")
+        if (select) {
+            game.StoryTeller.setVeryDirtyHack(select.value)
+        }
     }
 })
 
@@ -200,9 +198,4 @@ function registerSettings() {
         type: Boolean,
         default: false,
     });
-}
-
-function addScrollCss() {
-    let sheet = window.document.styleSheets[0];
-    sheet.insertRule('.page-num.num-start,.page-num.page { overflow-y: scroll; }', sheet.cssRules.length);
 }
