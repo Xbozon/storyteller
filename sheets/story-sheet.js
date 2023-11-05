@@ -1,7 +1,7 @@
 const bookSizeCorrection = 1
 const bookWidth = 1390
 const bookHeight = 937
-CONFIG.debug.hooks = true
+
 export class StorySheet extends JournalSheet {
     pageFlip = "modules/storyteller/sounds/paper-flip.mp3"
     static classes = ["sheet", "story-sheet"];
