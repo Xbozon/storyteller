@@ -30,13 +30,52 @@ export class StorySheet extends JournalSheet {
     }
 
     /** @inheritdoc */
+    _getHeaderButtons() {
+        const buttons = super._getHeaderButtons();
+
+        if (game.user.isGM) {
+            buttons.unshift({
+                label: "STORYTELLER.CopyID",
+                class: "switch-copyid",
+                icon: "fas fa-crosshairs",
+                onclick: ev => this._onCopyID(ev)
+            })
+        }
+
+        return buttons;
+    }
+
+    _onCopyID(event) {
+        let savedPage = getPage(this.getData().data._id)
+
+        const text = `game.StoryTeller.showStoryByIDToAll("` + this.object.id + `", ` + savedPage +`)`
+
+        let aux = document.createElement("input");
+        aux.setAttribute("value", text);
+        document.body.appendChild(aux);
+        aux.select();
+        document.execCommand("copy");
+        document.body.removeChild(aux);
+
+        ui.notifications.info(game.i18n.format("STORYTELLER.CopyIDMessage", {
+            mode: "text",
+            title: "Info",
+            which: "authorized"
+        }));
+    }
+
+    /** @inheritdoc */
     async _render(force, options = {}) {
         this.sound()
         await super._render(force, options);
 
         let data = this.getData().data
         let startPage = data.pages.length >= 1 ? 2 : 1
+
         let savedPage = getPage(data._id)
+        if (savedPage > data.pages.length) {
+            savedPage = data.pages.length - 1
+        }
 
         $('#story-' + data._id).turn({
             duration: 500,
@@ -62,50 +101,16 @@ export class StorySheet extends JournalSheet {
         return super._updateObject(event, formData);
     }
 
-    /** @inheritdoc */
-    _getHeaderButtons() {
-        const buttons = super._getHeaderButtons();
-
-        if (game.user.isGM) {
-            buttons.unshift({
-                label: "STORYTELLER.CopyID",
-                class: "switch-copyid",
-                icon: "fas fa-crosshairs",
-                onclick: ev => this._onCopyID(ev)
-            })
-        }
-
-        return buttons;
-    }
-
     async _onShowPlayers(event) {
-        event.preventDefault();
-        await this.submit();
-        return this.object.show(this._sheetMode, true);
-    }
+        let id = this.getData().data._id
+        // Save current page to global storage
+        game.socket.emit("module.storyteller", {
+            action: "setPageToOpen",
+            id: id,
+            page: getPage(id)
+        })
 
-    _onConfigureStory(event) {
-        let story = $(event.target).closest(".window-app.story-sheet")
-        let pageRightImage = story.find('.page-inner.image')
-        let pageRightSettings = story.find('.page-inner.settings')
-        pageRightImage.toggleClass("hidden")
-        pageRightSettings.toggleClass("hidden")
-    }
-
-    _onCopyID(event) {
-        const text = `game.StoryTeller.showStoryByIDToAll("` + this.object.id + `")`
-        let aux = document.createElement("input");
-        aux.setAttribute("value", text);
-        document.body.appendChild(aux);
-        aux.select();
-        document.execCommand("copy");
-        document.body.removeChild(aux);
-
-        ui.notifications.info(game.i18n.format("STORYTELLER.CopyIDMessage", {
-            mode: "text",
-            title: "Info",
-            which: "authorized"
-        }));
+        return super._onShowPlayers(event);
     }
 
     /** Меняем анимацию скрытия книги */
@@ -147,5 +152,9 @@ async function setPage(id, page) {
 
 function getPage(id) {
     let pages = game.settings.get('storyteller', 'pages')
+    if (pages[id] === 0) {
+        return 1
+    }
+
     return pages[id]
 }

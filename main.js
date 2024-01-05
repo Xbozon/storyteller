@@ -29,6 +29,7 @@ class StoryTeller {
         let labels = StoryTeller.getTypeLabels();
 
         this.registerObjects(types, labels)
+        this._activateSocketListeners(game.socket)
     }
 
     registerAddonSheet(s) {
@@ -70,12 +71,45 @@ class StoryTeller {
             tooltip.style.display = 'none'
         }
     }
-    showStoryByIDToAll(id = "") {
-        let story = game.journal.get(id)
-        story.show("text", true)
+
+    /** Устанавливает необходимую страницу для пользователя. */
+    _activateSocketListeners(socket) {
+        socket.on("module.storyteller", this._setPageToOpen.bind(this));
     }
 
-    showStoryToPlayerOnly(id = "") {
+    async _setPageToOpen(data) {
+        if (data.action !== "setPageToOpen" || data.id === "" ) {
+            return
+        }
+
+        let pages = game.settings.get('storyteller', 'pages')
+        pages[data.id] = data.page
+        await game.settings.set('storyteller', 'pages', pages)
+    }
+
+    showStoryByIDToAll(id = "", page = 0) {
+        if (page !== 0) {
+            game.socket.emit("module.storyteller", {
+                action: "setPageToOpen",
+                id: id,
+                page: page
+            })
+            let pages = game.settings.get('storyteller', 'pages')
+            pages[id] = page
+            game.settings.set('storyteller', 'pages', pages)
+        }
+
+        let story = game.journal.get(id)
+        story.show("text")
+    }
+
+    showStoryToPlayerOnly(id = "", page = 0) {
+        if (page !== 0) {
+            let pages = game.settings.get('storyteller', 'pages')
+            pages[id] = page
+            game.settings.set('storyteller', 'pages', pages)
+        }
+
         let story = game.journal.get(id)
         story.sheet.render(true)
     }
